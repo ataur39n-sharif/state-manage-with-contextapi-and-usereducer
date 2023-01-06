@@ -2,10 +2,20 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
+import TempForm from '../components/forms'
+import { formData } from '../context/formDataProvider'
+import { useEffect } from 'react'
+import { actionTypes } from '../state/actionTypes'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const { state, dispatch } = formData()
+
+  useEffect(() => {
+    dispatch({ type: actionTypes.SHOW_LOADING })
+  }, [])
+
   return (
     <>
       <Head>
@@ -15,7 +25,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.description}>
+        {/* <div className={styles.description}>
           <p>
             Get started by editing&nbsp;
             <code className={styles.code}>pages/index.js</code>
@@ -37,9 +47,9 @@ export default function Home() {
               />
             </a>
           </div>
-        </div>
-
-        <div className={styles.center}>
+        </div> */}
+        <TempForm />
+        {/* <div className={styles.center}>
           <Image
             className={styles.logo}
             src="/next.svg"
@@ -116,7 +126,7 @@ export default function Home() {
               with&nbsp;Vercel.
             </p>
           </a>
-        </div>
+        </div> */}
       </main>
     </>
   )

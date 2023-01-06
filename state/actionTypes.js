@@ -1,0 +1,6 @@
+export const actionTypes = {
+    SHOW_LOADING: 'SHOW_LOADING',
+    HIDE_LOADING: 'HIDE_LOADING',
+    CHANGING_DATA: 'CHANGING_DATA',
+    SUBMIT_DATA: 'SUBMIT_DATA'
+}
